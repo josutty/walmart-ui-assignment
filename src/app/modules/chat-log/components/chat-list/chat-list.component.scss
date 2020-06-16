@@ -23,8 +23,9 @@
     overflow-y: scroll;
     height: calc(100vh - 70px);
     overflow-x: hidden;
-    max-width: 27vw;
-    min-width: 25vw;
+    width: 27vw;
+    // min-width: 25vw;
+    float: left;
 }
 
 .tile-position {
@@ -62,15 +63,69 @@
     align-items: baseline;
 }
 
+.chat-area {
+    background-color: #f8fcff;
+    position: absolute;
+    left: 27.5vw;
+    height: calc(100vh - 70px);
+    right: 7px;
+}
+
+input[type="text"] {
+    bottom: 16px;
+    position: absolute;
+    width: 90%;
+    height: 60px;
+    left: 20px;
+    border: 1px solid lightblue;
+}
+
+.chat-area {
+    float: left;
+    overflow-y: scroll;
+}
+
+.msg {
+    text-align: end;
+    padding-right: 10px;
+    border: 0;
+    position: absolute;
+    bottom: 100px;
+    right: 4px;
+    border: 1px solid lightblue;
+    border-radius: 4px;
+    padding: 8px; 
+    margin-left: 10px;
+}
+
+.chat-header{
+    background: #e4edf4;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    height: 74px;
+}
+
+.name {
+    padding-left: 20px;
+    font-weight: bold
+}
+
 @media screen and (max-width: 1200px) {
     .outer-container {
-        max-width: 40%;
+        width: 40%;
+    }
+    .chat-area {
+        left: 40%;
     }
 }
 
 @media screen and (max-width: 800px) {
     .outer-container {
-        max-width: 50%;
+        width: 50%;
+    }
+    .chat-area {
+        left: 50%;
     }
 }
 

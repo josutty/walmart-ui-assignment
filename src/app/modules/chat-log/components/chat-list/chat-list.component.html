@@ -1,7 +1,7 @@
 <html>
 <div class="outer-container">
-  <div class="box-containner" *ngFor="let item of displayData">
-    <div class="tile-position">
+  <div class="box-containner" *ngFor="let item of displayData;let i=index">
+    <div class="tile-position" (click)="chatMsg(item,i)" [ngStyle]="{'background-color': i==chatrowIndex[0] ? '#e4edf4' : '' }">
       <div class="img-container">
         <img src={{item.avatar}}
           onerror="this.onerror=null;this.src='https://britz.mcmaster.ca/images/nouserimage.gif/image';"
@@ -17,6 +17,21 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="chat-area">
+  <div class="chat-header">
+    <div *ngIf="!img">
+      <img src='https://britz.mcmaster.ca/images/nouserimage.gif/image'  class="img-position" style="width: 50px;height: 50px;">
+    </div>
+    <div *ngIf="img">
+      <img src={{img}}  class="img-position" style="width: 50px;height: 50px;">
+    </div>
+    
+    <label class="name">{{fullName}}</label>
+  </div>
+  <div class="msg">{{msg}}</div>
+  <input type="text" />
 </div>
 
 </html>
