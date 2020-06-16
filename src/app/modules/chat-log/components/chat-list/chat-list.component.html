@@ -1,3 +1,22 @@
-<p>
-  chat-list works!
-</p>
+<html>
+<div class="outer-container">
+  <div class="box-containner" *ngFor="let item of displayData">
+    <div class="tile-position">
+      <div class="img-container">
+        <img src={{item.avatar}}
+          onerror="this.onerror=null;this.src='https://britz.mcmaster.ca/images/nouserimage.gif/image';"
+          class="img-position">
+        <span class="tooltip-email">{{item.email}}</span>
+      </div>
+      <div class="padding-left-2 details-align">
+        <div class="date-align">
+          <label class="font-weight-600">{{item.firstName}} {{item.lastName}}</label>
+          <label class="font-size-12">{{item.timestamp | date:"dd-MM-y"}}</label>
+        </div>
+        <div class="text-break font-size-14">{{item.message}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</html>

@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Brand Regular;
+    src: url("/assets/fonts/Brand Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: Brand Bold;
+    src: url("/assets/fonts/Brand Bold.ttf") format("truetype");
+}
+
+* {
+    font-family: Brand Regular;
+}
+
+.padding-left-2 {
+    padding-left: 2vw;
+}
+
+.font-weight-600 {
+     font-weight: 600;
+     font-size: 1em;
+}
+
+.font-size-14 {
+    font-size: .87em;
+}
+
+.font-size-12 {
+    font-size: 0.75em;
+}

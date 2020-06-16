@@ -9,27 +9,60 @@ import { ChatLogService }from '../../services/chat-log.service'
 export class ChatListComponent implements OnInit {
   memberData: any;
   messageData: any;
+  displayData: any = [];
 
   constructor(private chatLogService : ChatLogService) { }
-  // memberData:any;
-  // messageData = [];
 
   ngOnInit() {
+
+    let memberDetails = new Promise((resolve, reject) => {
+      this.chatLogService.memberList()
+      .toPromise()
+      .then(
+        data => {
+          let memberData = data;
+          resolve(memberData);
+        }
+      )
+    })
+
+    let messageDetails = new Promise((resolve, reject) => {
+      this.chatLogService.messageList()
+      .toPromise()
+      .then(
+        data => {
+          let messageData = data;
+          resolve(messageData);
+        }
+      )
+    })
     
+    Promise.all([memberDetails, messageDetails]).then((values) => {
+      this.combineMessageMemberDetail(values)
+    })
 
-    this.chatLogService.memberList().subscribe(
-      response => {
-        this.memberData = response;
-        console.log("response", this.memberData)
-      });
-
-    this.chatLogService.messageList().subscribe(
-      response => {
-        this.messageData = response;
-      });
-
-      console.log("response", this.messageData)
-      console.log("response", this.memberData)
   }
+
+  combineMessageMemberDetail(val) {
+      let memberDetails = val[0];
+      let msgDetails = val[1];
+      let memberDetailsCopy = [...memberDetails]
+      let msgDetailsCopy = [...msgDetails]
+
+      for(var msg of msgDetailsCopy) {
+        const found = memberDetailsCopy.find(element => element.id==msg.userId);
+        if(found) {
+          delete found['id'];
+          delete found['ip'];
+          msg = {...msg, ...found}
+          this.displayData.push(msg)
+        }
+
+      }
+      
+      this.displayData.sort(function(a,b){return <any>new Date(b.timestamp) - <any>new Date(a.timestamp)});
+      console.log(this.displayData)
+  }
+
 
 }

@@ -1,0 +1,80 @@
+.img-position {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.img-container .tooltip-email {
+    visibility: hidden;
+    background-color: lightblue;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 7px;
+    position: absolute;
+    z-index: 1;
+  }
+
+.img-container:hover .tooltip-email  {
+    visibility: visible;
+}
+
+.outer-container {
+    overflow-y: scroll;
+    height: 100vh;
+    overflow-x: hidden;
+    max-width: 27vw;
+    min-width: 25vw;
+}
+
+.tile-position {
+    display: flex;
+    padding: 10px;
+}
+.box-containner {
+    box-shadow: 0px 0px 1px #000;
+    font-size: 16px;
+    &:hover {
+        background: aliceblue;
+        cursor: pointer;
+    }
+}
+
+.text-break {
+    overflow: hidden;
+    word-break: break-all;
+    white-space: nowrap;
+    width: 18vw;
+    text-overflow: ellipsis;
+}
+
+.details-align {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.date-align{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+@media screen and (max-width: 1200px) {
+    .outer-container {
+        max-width: 40%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .outer-container {
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .date-align{
+        flex-direction: column;
+    }
+}
