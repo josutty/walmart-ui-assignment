@@ -21,7 +21,7 @@
 
 .outer-container {
     overflow-y: scroll;
-    height: 100vh;
+    height: calc(100vh - 70px);
     overflow-x: hidden;
     max-width: 27vw;
     min-width: 25vw;
@@ -30,6 +30,7 @@
 .tile-position {
     display: flex;
     padding: 10px;
+    position: relative;
 }
 .box-containner {
     box-shadow: 0px 0px 1px #000;
