@@ -67,7 +67,7 @@ export class ChatListComponent implements OnInit {
       this.displayData.sort(function(a,b){return <any>new Date(b.timestamp) - <any>new Date(a.timestamp)});
       this.msg = this.displayData[0].message;
       this.img = this.displayData[0].avatar;
-      this.fullName = this.displayData[0].firstName + this.displayData[0].lastName;
+      this.fullName = this.displayData[0].firstName + ' '+ this.displayData[0].lastName;
   }
 
   chatMsg(event,index) {
@@ -75,7 +75,7 @@ export class ChatListComponent implements OnInit {
     this.chatrowIndex.push(index)
     this.msg = event.message;
     this.img = event.avatar;
-    this.fullName = event.firstName + event.lastName;
+    this.fullName = event.firstName + ' ' + event.lastName;
   }
 
 
